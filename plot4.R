@@ -18,6 +18,9 @@ data <- subset(data, Date == "1/2/2007"|Date=="2/2/2007")
 Sys.setlocale("LC_TIME", "C") 
 
 #join hours, minutes and seconds with date to have a continuum time variable
+library(lubridate)
+library (stringr)
+
 data$Date <- as.Date(strptime(data$Date, "%d/%m/%Y"))
 
 data$Date <-str_c(data$Date," ", data$Time) 
